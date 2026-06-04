@@ -1,0 +1,21 @@
+{% extends "blog/base.html" %}
+
+{% block content %}
+
+    <article class="card-body bg-base-100 shadow-sm hover:shadow-md transition-shadow duration-200 gap-3">
+        {% if post.published_date %}
+            <time class="text-xs text-base-content/50 uppercase tracking-widest">
+                {{ post.published_date }}
+            </time>
+        {% endif %}
+        <h2 class="card-title text-2xl leading-snug">
+            <a href="{% url 'post_detail' pk=post.pk %}" class="hover:text-primary transition-colors">
+                {{ post.title }}
+            </a>
+        </h2>
+        <p class="text-base-content/75 leading-relaxed text-[15px]">
+            {{ post.text|linebreaksbr }}
+        </p>
+    </article>
+
+{% endblock %}
