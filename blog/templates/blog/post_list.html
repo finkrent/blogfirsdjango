@@ -7,9 +7,10 @@
                     {{ post.published_date }}
                 </time>
                 <h2 class="card-title text-2xl leading-snug">
-                    <a href="" class="hover:text-primary transition-colors">
+                    <a href="{% url 'post_detail' pk=post.pk %}" class="hover:opacity-80 transition-opacity">
                         {{ post.title }}
                     </a>
+                    
                 </h2>
                 <p class="text-base-content/75 leading-relaxed text-[15px]">
                     {{ post.text|linebreaksbr }}
