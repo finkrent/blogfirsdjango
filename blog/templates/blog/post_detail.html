@@ -4,14 +4,21 @@
 
     <article class="card-body bg-base-100 shadow-sm hover:shadow-md transition-shadow duration-200 gap-3">
         {% if post.published_date %}
-            <time class="text-xs text-base-content/50 uppercase tracking-widest">
-                {{ post.published_date }}
-            </time>
+        <time class="text-xs text-base-content/50 uppercase tracking-widest">
+            {{ post.published_date }}
+        </time>
         {% endif %}
         <h2 class="card-title text-2xl leading-snug">
             <a href="{% url 'post_detail' pk=post.pk %}" class="hover:text-primary transition-colors">
                 {{ post.title }}
             </a>
+            <aside class="actions">
+                {% if user.is_authenticated %}
+                    <a class="btn btn-secondary" href="{% url 'post_edit' pk=post.pk %}">
+                        {% include './icons/pencil-fill.svg' %}
+                    </a>
+                {% endif %}
+            </aside>
         </h2>
         <p class="text-base-content/75 leading-relaxed text-[15px]">
             {{ post.text|linebreaksbr }}
