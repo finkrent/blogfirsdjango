@@ -9,9 +9,6 @@ myvenv/
 venv/
 .venv
 
-# Database
-*.sqlite3
-db.sqlite3
 
 # Static folder at project root
 /static/
